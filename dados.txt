@@ -1,0 +1,12 @@
+Acomodação: ID; CAPACIDADE_MAX; VALOR_BASE; DIAS_ESTADIA;
+
+1;2;90.00;3;
+2;5;150.00;5;
+3;3;115.00;2;
+
+Serviços: ID; VALOR_BASE;
+
+1;25.00;
+2;30.00;
+3;5.00;
+

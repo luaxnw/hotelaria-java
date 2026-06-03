@@ -8,7 +8,17 @@ public class Reservas {
     private int quantidadeHospedes;
     private int qtdDias;
     private ArrayList<Servicos> servicos;
-    
+
+    public Reservas(int codigo, Hospede hospedeResponsavel, Acomodacoes acomodacao, int quantidadeHospedes,
+            int qtdDias) {
+        this.codigo = codigo;
+        this.hospedeResponsavel = hospedeResponsavel;
+        this.acomodacao = acomodacao;
+        this.quantidadeHospedes = quantidadeHospedes;
+        this.qtdDias = qtdDias;
+        servicos = new ArrayList<Servicos>();
+    }
+
     public int getCodigo() {
         return codigo;
     }
@@ -57,29 +67,18 @@ public class Reservas {
         this.servicos = servicos;
     }
 
-    public void addServico(Servicos servicos) {
-        if (this.servicos == null) {
-            this.servicos = new ArrayList<>();
-        }
-        this.servicos.add(servicos);
+    public void addServico(Servicos servico) {
+        this.servicos.add(servico);
     }
 
-    public double calcularPrecoReserva(){
+    public double calcularPrecoReserva() {
         double somaValorTotal = 0;
-        for (int i = 0; i < servicos.size(); i++){
+        for (int i = 0; i < servicos.size(); i++) {
             somaValorTotal += servicos.get(i).calcularValor();
         }
-        somaValorTotal =+ acomodacao.calculaPrecoTotalDiaria();
-        
+        somaValorTotal = +acomodacao.calculaPrecoTotalDiaria();
+
         return somaValorTotal;
     }
-
-
-
-
-
-
-
-
 
 }
