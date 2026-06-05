@@ -70,11 +70,22 @@ public class Pousada {
     public void lerAcomodacoes(String nomeArquivo) {
         FileReader file = null;
 
-        try { 
+        try {
             file = new FileReader(nomeArquivo);
-            while(file.ready()){
-                System.out.println();
+            BufferedReader buffer = new BufferedReader(file);
+
+            while (file.ready()) {
+                System.out.println("=====Acomodações=====\n");
+                String linha = buffer.readLine();
+                System.out.println(linha);
+
             }
+            file.close();
+
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -82,10 +93,22 @@ public class Pousada {
     public void lerServicos(String nomeArquivo) {
         FileReader file = null;
 
-        try { 
+        try {
             file = new FileReader(nomeArquivo);
+            BufferedReader buffer = new BufferedReader(file);
+
+            while (file.ready()) {
+                System.out.println("=====Serviços=====\n");
+                String linha = buffer.readLine();
+                System.out.println(linha.split(";")); // remove o ;
+            }
+            file.close();
+
         }
 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void salvaDadosHospedes(String nomeArquivo) {
