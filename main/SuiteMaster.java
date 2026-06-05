@@ -8,11 +8,8 @@ public class SuiteMaster extends Acomodacoes {
     }
 
     @Override
-    public void mostraDados() {
-
-        System.out.printf(
-                "Tipo de acomodação: Suíte Master\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\n",
-                getCodigo(), getCapacidadeMax(), getValorBaseDiaria());
+    public String mostraDados() {
+        String template = "Tipo de acomodação: Suíte Master\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\n";
+        return template.formatted(getCodigo(), getCapacidadeMax(), getValorBaseDiaria());
     }
-
 }

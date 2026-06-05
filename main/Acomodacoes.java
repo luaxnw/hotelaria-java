@@ -54,7 +54,7 @@ public abstract class Acomodacoes {
         }
     }
 
-    public abstract void mostraDados();
+    public abstract String mostraDados();
 
     public abstract double calculaPrecoTotalDiaria();
 

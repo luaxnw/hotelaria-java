@@ -81,16 +81,4 @@ public class Reservas {
         return somaValorTotal;
     }
 
-    public String arrayServicosParaString(){
-
-        String retorno = null;
-
-        for (int i = 0; i < servicos.size(); i++){
-            retorno += servicos.get(i);
-        }
-        
-        return retorno;
-
-    }
-
 }

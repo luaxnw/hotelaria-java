@@ -126,11 +126,12 @@ public class Pousada {
             for (int i = 0; i < reservas.size(); i++) {
 
                 file.write(
-                        reservas.get(i).getCodigo() + ";" + reservas.get(i).getQtdDias() + ";"
-                                + reservas.get(i).getQuantidadeHospedes() + ";"
-                                + reservas.get(i).getAcomodacao().getCodigo() + ";"
-                                + reservas.get(i).getHospedeResponsavel().getNome() + ";"
-                                + reservas.get(i).arrayServicosParaString() + "\n");
+                        reservas.get(i).getCodigo() + "\n" + reservas.get(i).getQtdDias() + "\n"
+                                + reservas.get(i).getQuantidadeHospedes() + "\n"
+                                + reservas.get(i).getAcomodacao().getCodigo() + "\n"
+                                + reservas.get(i).getHospedeResponsavel().getNome() + "\n"
+                                + "========ACOMODAÇÃO========"
+                                + reservas.get(i).getAcomodacao().mostraDados() + "\n");
             }
             file.close();
 

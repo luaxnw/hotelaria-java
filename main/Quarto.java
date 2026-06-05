@@ -7,10 +7,9 @@ public class Quarto extends Acomodacoes {
     }
 
     @Override
-    public void mostraDados() {
-
-        System.out.printf("Tipo de acomodação: Quarto\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\n",
-                getCodigo(), getCapacidadeMax(), getValorBaseDiaria());
+    public String mostraDados() {
+        String template = "Tipo de acomodação: Quarto\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\n";
+        return template.formatted(getCodigo(), getCapacidadeMax(), getValorBaseDiaria());
     }
 
 }

@@ -36,11 +36,10 @@ public class Chale extends Acomodacoes {
     }
 
     @Override
-    public void mostraDados() {
+    public String mostraDados() {
+        String template = "Tipo acomodação: Chalé\nCódigo: %d\nCapacidade máxima: %d\nValor base da diária: %.2f\nDias de estadia: %d\nTaxa de aquecimento: %d\nTaxa de limpeza: %d\n";
+        return template.formatted(getCodigo(), getCapacidadeMax(), getValorBaseDiaria(), getDiasEstadia(),
+                getTaxaAquecimento(), getTaxaLimpeza());
 
-        System.out.printf(
-                "Tipo de acomodação: Chalé\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\nTaxa de limpeza: %d\nTaxa de aquecimento: %d\n",
-                getCodigo(), getCapacidadeMax(), getValorBaseDiaria(), getTaxaLimpeza(), getTaxaAquecimento());
     }
-
 }
