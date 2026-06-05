@@ -3,6 +3,12 @@ public class Chale extends Acomodacoes {
     private int taxaAquecimento;
     private int taxaLimpeza;
 
+    public Chale(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia, int taxaAquecimento, int taxaLimpeza) {
+        super(codigo, capacidadeMax, valorBaseDiaria, diasEstadia);
+        this.taxaAquecimento = taxaAquecimento;
+        this.taxaLimpeza = taxaLimpeza;
+    }
+
     public int getTaxaAquecimento() {
         return taxaAquecimento;
     }
