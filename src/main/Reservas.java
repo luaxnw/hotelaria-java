@@ -24,7 +24,11 @@ public class Reservas {
     }
 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        if (codigo > 0)
+            this.codigo = codigo;
+        else {
+            throw new IllegalArgumentException("Código da reserva deve ser maior que 0.");
+        }
     }
 
     public Hospede getHospedeResponsavel() {
@@ -48,7 +52,11 @@ public class Reservas {
     }
 
     public void setQuantidadeHospedes(int quantidadeHospedes) {
-        this.quantidadeHospedes = quantidadeHospedes;
+        if (quantidadeHospedes > 0)
+            this.quantidadeHospedes = quantidadeHospedes;
+        else {
+            throw new IllegalArgumentException("Quantidade de hóspede deve ser maior que zero.");
+        }
     }
 
     public int getQtdDias() {
@@ -56,7 +64,11 @@ public class Reservas {
     }
 
     public void setQtdDias(int qtdDias) {
-        this.qtdDias = qtdDias;
+        if (qtdDias > 0)
+            this.qtdDias = qtdDias;
+        else {
+            throw new IllegalArgumentException("Quantidade de dias de estadia deve ser maior que zero.");
+        }
     }
 
     public ArrayList<Servicos> getServicos() {
