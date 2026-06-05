@@ -7,7 +7,11 @@ public class PasseioGrupo extends Servicos {
     }
 
     public void setQtdMaximaPessoas(int qtdMaximaPessoas) {
-        this.qtdMaximaPessoas = qtdMaximaPessoas;
+        if (qtdMaximaPessoas > 0)
+            this.qtdMaximaPessoas = qtdMaximaPessoas;
+        else {
+            throw new IllegalArgumentException("Quantidade máxima de pessoas deve ser maior que zero");
+        }
     }
 
     @Override
