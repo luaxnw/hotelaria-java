@@ -76,7 +76,16 @@ public class Pousada {
 
             while (file.ready()) {
                 System.out.println("=====Acomodações=====\n");
-                String linha = buffer.readLine();
+                String[] linha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do ";"
+
+                if (linha[0].equals("Quarto")) {
+                    int id = Integer.parseInt(linha[1]);
+                    int capacidadeMax = Integer.parseInt(linha[2]);
+                    double preco = Double.parseDouble(linha[3]);
+
+                    acomodacoes.add(new Quarto(id,capacidadeMax,preco));
+                }
+
                 System.out.println(linha);
 
             }
