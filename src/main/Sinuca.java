@@ -7,7 +7,11 @@ public class Sinuca extends Servicos {
     }
 
     public void setNumeroFichas(int numeroFichas) {
-        this.numeroFichas = numeroFichas;
+        if (numeroFichas > 0)
+            this.numeroFichas = numeroFichas;
+        else {
+            throw new IllegalArgumentException("Número de fichas deve ser maior que zero");
+        }
     }
 
     @Override
