@@ -5,6 +5,14 @@ public abstract class Acomodacoes {
     private double valorBaseDiaria;
     private int diasEstadia;
 
+    public Acomodacoes(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia){
+        this.codigo = codigo;
+        this.capacidadeMax = capacidadeMax;
+        this.valorBaseDiaria = valorBaseDiaria;
+        this.diasEstadia = diasEstadia;
+    }
+
+
     public int getCodigo() {
         return codigo;
     }
