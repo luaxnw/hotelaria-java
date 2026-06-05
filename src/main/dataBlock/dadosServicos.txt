@@ -1,5 +1,3 @@
-Serviços: NOME; ID; VALOR_BASE; QTD_MAX;
-
 Refeição;1;30.00;
 Passeio em Grupo;2;25.00;5;
 Sinuca;3;5.00;
