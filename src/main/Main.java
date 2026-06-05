@@ -3,7 +3,7 @@ public class Main {
         
 
         Pousada pousada = new Pousada();
-        pousada.lerAcomodacoes("dadosAcomodacoes");
+        pousada.lerAcomodacoes("dataBlock/dadosAcomodacoes");
 
     }
 }
