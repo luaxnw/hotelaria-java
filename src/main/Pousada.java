@@ -76,17 +76,39 @@ public class Pousada {
 
             while (file.ready()) {
                 System.out.println("=====Acomodações=====\n");
-                String[] linha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do ";"
+                String[] arrayDaLinha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do
+                                                                      // ";"
 
-                if (linha[0].equals("Quarto")) {
-                    int id = Integer.parseInt(linha[1]);
-                    int capacidadeMax = Integer.parseInt(linha[2]);
-                    double preco = Double.parseDouble(linha[3]);
+                if (arrayDaLinha[0].equals("QUARTO")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    int capacidadeMax = Integer.parseInt(arrayDaLinha[2]);
+                    double preco = Double.parseDouble(arrayDaLinha[3]);
+                    int diasEstadia = Integer.parseInt(arrayDaLinha[4]);
 
-                    acomodacoes.add(new Quarto(id,capacidadeMax,preco));
+                    acomodacoes.add(new Quarto(id, capacidadeMax, preco, diasEstadia));
                 }
 
-                System.out.println(linha);
+                else if (arrayDaLinha[0].equals("CHALE")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    int capacidadeMax = Integer.parseInt(arrayDaLinha[2]);
+                    double preco = Double.parseDouble(arrayDaLinha[3]);
+                    int diasEstadia = Integer.parseInt(arrayDaLinha[4]);
+                    int taxaAquecimento = Integer.parseInt(arrayDaLinha[5]);
+                    int taxaLimpeza = Integer.parseInt(arrayDaLinha[6]);
+
+                    acomodacoes.add(new Chale(id, capacidadeMax, preco, diasEstadia, taxaAquecimento, taxaLimpeza));
+
+                }
+
+                else if (arrayDaLinha[0].equals("SUITE")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    int capacidadeMax = Integer.parseInt(arrayDaLinha[2]);
+                    double preco = Double.parseDouble(arrayDaLinha[3]);
+                    int diasEstadia = Integer.parseInt(arrayDaLinha[4]);
+
+                    acomodacoes.add(new SuiteMaster(id, capacidadeMax, preco, diasEstadia));
+
+                }
 
             }
             file.close();

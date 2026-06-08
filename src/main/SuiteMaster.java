@@ -1,5 +1,9 @@
 public class SuiteMaster extends Acomodacoes {
 
+    public SuiteMaster(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia) {
+        super(codigo, capacidadeMax, valorBaseDiaria, diasEstadia);
+    }
+
     @Override
     public double calculaPrecoTotalDiaria() {
 

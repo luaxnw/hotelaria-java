@@ -12,7 +12,6 @@ public abstract class Acomodacoes {
         this.diasEstadia = diasEstadia;
     }
 
-
     public int getCodigo() {
         return codigo;
     }
