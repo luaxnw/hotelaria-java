@@ -1,6 +1,0 @@
-Acomodação: ID; CAPACIDADE_MAX; VALOR_BASE; DIAS_ESTADIA;
-
-Quarto;1;2;90.00;3;
-Chalé;2;5;150.00;5;
-Suíte Master;3;3;115.00;2;
-
