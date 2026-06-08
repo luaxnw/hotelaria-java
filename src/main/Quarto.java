@@ -1,5 +1,10 @@
 public class Quarto extends Acomodacoes {
 
+    public Quarto(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia) {
+        super(codigo, capacidadeMax, valorBaseDiaria, diasEstadia);
+    }
+
+
     @Override
     public double calculaPrecoTotalDiaria() {
 
