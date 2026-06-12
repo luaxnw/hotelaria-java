@@ -2,6 +2,11 @@ public class Sinuca extends Servicos {
 
     public int numeroFichas;
 
+    public Sinuca(int codigo, double valorBase, int numeroFichas) {
+        super(codigo, valorBase);
+        this.numeroFichas = numeroFichas;
+    }
+
     public int getNumeroFichas() {
         return numeroFichas;
     }
