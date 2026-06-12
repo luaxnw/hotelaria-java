@@ -130,7 +130,34 @@ public class Pousada {
 
             while (file.ready()) {
                 System.out.println("=====Serviços=====\n");
-                
+                String[] arrayDaLinha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do
+                                                                      // ";"
+
+                if (arrayDaLinha[0].equals("REFEIÇÃO")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    double preco = Double.parseDouble(arrayDaLinha[2]);
+
+                    servicos.add(new RefeicaoAcomodacao(id, preco));
+                }
+
+                else if (arrayDaLinha[0].equals("PASSEIO_EM_GRUPO")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    double preco = Double.parseDouble(arrayDaLinha[2]);
+                    int qtdMaximaPessoas = Integer.parseInt(arrayDaLinha[3]);
+
+                    servicos.add(new PasseioGrupo(id, preco, qtdMaximaPessoas));
+
+                }
+
+                else if (arrayDaLinha[0].equals("SINUCA")) {
+                    int id = Integer.parseInt(arrayDaLinha[1]);
+                    double preco = Double.parseDouble(arrayDaLinha[2]);
+                    int numeroFichas = Integer.parseInt(arrayDaLinha[3]);
+
+                    servicos.add(new Sinuca(id, preco, numeroFichas));
+
+                }
+
             }
             file.close();
 
@@ -139,6 +166,7 @@ public class Pousada {
         catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public void salvaDadosHospedes(String nomeArquivo) {
