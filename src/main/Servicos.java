@@ -3,6 +3,11 @@ public abstract class Servicos {
     private int codigo;
     private double valorBase;
 
+    public Servicos(int codigo, double valorBase) {
+        this.codigo = codigo;
+        this.valorBase = valorBase;
+    }
+
     public int getCodigo() {
         return codigo;
     }
