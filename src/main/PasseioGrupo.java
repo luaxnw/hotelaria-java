@@ -2,6 +2,11 @@ public class PasseioGrupo extends Servicos {
 
     private int qtdMaximaPessoas;
 
+    public PasseioGrupo(int codigo, double valorBase, int qtdMaximaPessoas) {
+        super(codigo, valorBase);
+        this.qtdMaximaPessoas = qtdMaximaPessoas;
+    }
+
     public int getQtdMaximaPessoas() {
         return qtdMaximaPessoas;
     }
