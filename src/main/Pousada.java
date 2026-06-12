@@ -130,8 +130,7 @@ public class Pousada {
 
             while (file.ready()) {
                 System.out.println("=====Serviços=====\n");
-                String linha = buffer.readLine();
-                System.out.println(linha.split(";")); // remove o ;
+                
             }
             file.close();
 
