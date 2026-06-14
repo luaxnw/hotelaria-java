@@ -4,12 +4,24 @@ public class Hospede {
     private int idade;
     private String CPF;
 
+    public Hospede(String nome, int idade, String CPF) {
+        this.nome = nome;
+        this.idade = idade;
+        this.CPF = CPF;
+    }
+
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome != null)
+            this.nome = nome;
+        else {
+            throw new IllegalArgumentException("Informe uma idade válida.");
+        }
+
     }
 
     public int getIdade() {
