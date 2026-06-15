@@ -5,6 +5,11 @@ public class SuiteMaster extends Acomodacoes {
     }
 
     @Override
+    public String getNome() {
+        return "Suíte Master";
+    }
+
+    @Override
     public double calculaPrecoTotalDiaria() {
 
         return (getValorBaseDiaria() * getDiasEstadia()) + 130;

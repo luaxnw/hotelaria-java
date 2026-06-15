@@ -65,4 +65,6 @@ public abstract class Acomodacoes {
 
     public abstract double calculaPrecoTotalDiaria();
 
+    public abstract String getNome();
+
 }

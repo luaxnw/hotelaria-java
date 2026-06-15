@@ -93,4 +93,28 @@ public class Reservas {
         return somaValorTotal;
     }
 
+    public void mostraDados() {
+        System.out.printf("ID: %d\nHóspede responsável: %s\nAcomodação %s\nQuantidade de hóspedes: %d\nDias estadia: %d\n",
+                codigo, hospedeResponsavel.getNome(), acomodacao.getNome(), quantidadeHospedes, qtdDias);
+
+        System.out.println("SERVIÇOS ACOMODAÇÃO");
+        for (int i = 0; i < servicos.size(); i++) {
+            servicos.get(i).mostraDados();
+        }
+    }
+
+    public void calculaExtrato() {
+        double valorAcomod = acomodacao.calculaPrecoTotalDiaria();
+        double valorServicos = 0;
+
+        for (int i = 0; i < servicos.size(); i++) {
+            valorServicos += servicos.get(i).calcularValor();
+            System.out.println("Serviço: " + servicos.get(i).getNome() + " -> " + servicos.get(i).calcularValor());
+        }
+
+        System.out.printf("Valor da acomadação: %.2f\nValor total serviços: %.2f\n==Valor final: %.2f==\n", valorAcomod,
+                valorServicos, valorAcomod + valorServicos);
+
+    }
+
 }

@@ -1,0 +1,12 @@
+Código reserva: 1
+Quantidade dias estadia: 2
+Quantidade hóspedes: 4
+Hóspede responsávelluan
+========ACOMODAÇÃO========Tipo acomodação: Chalé
+Código: 2
+Capacidade máxima: 5
+Valor base da diária: 150,00
+Dias de estadia: 3
+Taxa de aquecimento: 10
+Taxa de limpeza: 15
+

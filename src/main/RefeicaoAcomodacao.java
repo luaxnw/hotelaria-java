@@ -13,5 +13,11 @@ public class RefeicaoAcomodacao extends Servicos {
     public double calcularValor(){
         return getValorBase();
     }
+
+    @Override
+    public String getNome() {
+        return "Refeição acomodação";
+    }
+
     
 }

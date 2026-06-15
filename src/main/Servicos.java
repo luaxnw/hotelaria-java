@@ -36,4 +36,6 @@ public abstract class Servicos {
 
     public abstract double calcularValor();
 
+    public abstract String getNome();
+
 }

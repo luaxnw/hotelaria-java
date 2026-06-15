@@ -4,6 +4,10 @@ public class Quarto extends Acomodacoes {
         super(codigo, capacidadeMax, valorBaseDiaria, diasEstadia);
     }
 
+    @Override
+    public String getNome(){
+        return "Quarto";
+    }
 
     @Override
     public double calculaPrecoTotalDiaria() {

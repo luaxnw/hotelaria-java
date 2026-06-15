@@ -31,4 +31,10 @@ public class Sinuca extends Servicos {
         return getValorBase() * numeroFichas;
     }
 
+    @Override
+    public String getNome() {
+        return "Sinuca";
+    }
+
+
 }

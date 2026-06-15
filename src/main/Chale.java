@@ -9,6 +9,11 @@ public class Chale extends Acomodacoes {
         this.taxaLimpeza = taxaLimpeza;
     }
 
+    @Override  
+    public String getNome(){
+        return "Chalé";
+    }
+
     public int getTaxaAquecimento() {
         return taxaAquecimento;
     }

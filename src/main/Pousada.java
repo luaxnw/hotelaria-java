@@ -9,13 +9,13 @@ public class Pousada {
     private ArrayList<Hospede> hospedes;
     private ArrayList<Acomodacoes> acomodacoes;
     private ArrayList<Servicos> servicos;
-    private ArrayList<Reservas> reservas;
+    private ArrayList<Reservas> LISTAreservas;
 
     public Pousada() {
         hospedes = new ArrayList<Hospede>();
         acomodacoes = new ArrayList<Acomodacoes>();
         servicos = new ArrayList<Servicos>();
-        reservas = new ArrayList<Reservas>();
+        LISTAreservas = new ArrayList<Reservas>();
 
     }
 
@@ -44,11 +44,11 @@ public class Pousada {
     }
 
     public ArrayList<Reservas> getReservas() {
-        return this.reservas;
+        return this.LISTAreservas;
     }
 
     public void setReservas(ArrayList<Reservas> reservas) {
-        this.reservas = reservas;
+        this.LISTAreservas = reservas;
     }
 
     public void adicionarHospede(Hospede hospede) {
@@ -64,20 +64,20 @@ public class Pousada {
     }
 
     public void adicionarReserva(Reservas reserva) {
-        reservas.add(reserva);
+        LISTAreservas.add(reserva);
     }
 
     public void lerAcomodacoes(String nomeArquivo) {
         FileReader file = null;
+        String linha;
 
         try {
             file = new FileReader(nomeArquivo);
             BufferedReader buffer = new BufferedReader(file);
 
-            while (file.ready()) {
-                System.out.println("=====Acomodações=====\n");
-                String[] arrayDaLinha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do
-                                                                      // ";"
+            while ((linha = buffer.readLine()) != null) {
+                String[] arrayDaLinha = linha.split(";"); // transforma a linha lida em array a partir do
+                                                          // ";"
 
                 if (arrayDaLinha[0].equals("QUARTO")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
@@ -123,15 +123,15 @@ public class Pousada {
 
     public void lerServicos(String nomeArquivo) {
         FileReader file = null;
+        String linha;
 
         try {
             file = new FileReader(nomeArquivo);
             BufferedReader buffer = new BufferedReader(file);
 
-            while (file.ready()) {
-                System.out.println("=====Serviços=====\n");
-                String[] arrayDaLinha = buffer.readLine().split(";"); // transforma a linha lida em array a partir do
-                                                                      // ";"
+            while ((linha = buffer.readLine()) != null) {
+                String[] arrayDaLinha = linha.split(";"); // transforma a linha lida em array a partir do
+                                                          // ";"
 
                 if (arrayDaLinha[0].equals("REFEIÇÃO")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
@@ -177,7 +177,7 @@ public class Pousada {
 
             for (int i = 0; i < hospedes.size(); i++) { // itera sobre a lista e adiciona no file no formato: x;y;z
                 file.write(
-                        hospedes.get(i).getNome() + ";" + hospedes.get(i).getIdade() + ";" + hospedes.get(i).getCPF()
+                        "Nome hóspede: " + hospedes.get(i).getNome() + "Idade hóspede: " + hospedes.get(i).getIdade() + "CPF hóspede: " + hospedes.get(i).getCPF()
                                 + "\n");
             }
             file.close(); // fecha quando finaliza
@@ -204,15 +204,15 @@ public class Pousada {
 
             file = new FileWriter(nomeArquivo);
 
-            for (int i = 0; i < reservas.size(); i++) {
+            for (int i = 0; i < LISTAreservas.size(); i++) {
 
                 file.write(
-                        reservas.get(i).getCodigo() + "\n" + reservas.get(i).getQtdDias() + "\n"
-                                + reservas.get(i).getQuantidadeHospedes() + "\n"
-                                + reservas.get(i).getAcomodacao().getCodigo() + "\n"
-                                + reservas.get(i).getHospedeResponsavel().getNome() + "\n"
+                        "Código reserva: " + LISTAreservas.get(i).getCodigo() + "\n" + "Quantidade dias estadia: "
+                                + LISTAreservas.get(i).getQtdDias() + "\n"
+                                + "Quantidade hóspedes: " + LISTAreservas.get(i).getQuantidadeHospedes() + "\n"
+                                + "Hóspede responsável" + LISTAreservas.get(i).getHospedeResponsavel().getNome() + "\n"
                                 + "========ACOMODAÇÃO========"
-                                + reservas.get(i).getAcomodacao().mostraDados() + "\n");
+                                + LISTAreservas.get(i).getAcomodacao().mostraDados() + "\n");
             }
             file.close();
 
@@ -228,6 +228,84 @@ public class Pousada {
 
             }
         }
+
+    }
+
+    public void exibirHospede(String cpf) {
+
+        for (int i = 0; i < hospedes.size(); i++) {
+
+            if (cpf.equals(hospedes.get(i).getCPF())) {
+
+                System.out.printf("NOME: %s\nIDADE: %d\nCPF: %s\n",
+                        hospedes.get(i).getNome(),
+                        hospedes.get(i).getIdade(),
+                        hospedes.get(i).getCPF());
+
+                return;
+            }
+        }
+
+        System.out.println("Hóspede não localizado");
+        return;
+
+    }
+
+    public void exibirAcomodacao(int id) {
+
+        for (int i = 0; i < acomodacoes.size(); i++) {
+
+            if (id == acomodacoes.get(i).getCodigo()) {
+
+                System.out.println(acomodacoes.get(i).mostraDados());
+
+                return;
+            }
+        }
+
+        System.out.println("Acomodação não localizada");
+        return;
+
+    }
+
+    public void exibirServico(int id) {
+
+        for (int i = 0; i < servicos.size(); i++) {
+
+            if (id == servicos.get(i).getCodigo()) {
+
+                servicos.get(i).mostraDados();
+
+                return;
+            }
+        }
+
+        System.out.println("Serviço não localizado");
+        return;
+
+    }
+
+    public void exibirReserva(int id) {
+
+        for (int i = 0; i < LISTAreservas.size(); i++) {
+            if (LISTAreservas.get(i).getCodigo() == id) {
+                LISTAreservas.get(i).mostraDados();
+                return;
+            }
+        }
+        System.out.println("Código não encontrado ");
+
+    }
+
+    public void exibirExtratoReserva(int id) {
+
+        for (int i = 0; i < LISTAreservas.size(); i++) {
+            if (id == LISTAreservas.get(i).getCodigo()) {
+                LISTAreservas.get(i).calculaExtrato();
+                return;
+            }
+        }
+        System.out.println("Código não encontrado ");
 
     }
 
