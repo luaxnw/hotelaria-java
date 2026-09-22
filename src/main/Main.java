@@ -5,6 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         File dadosHospedes = new File("dados/hospedes.txt");
+        Scanner sc = new Scanner(System.in);
+        LeitorUtil leitor = new LeitorUtil();
+        Pousada pousada = new Pousada();
 
         if (dadosHospedes.exists()) {
             System.out.println("Arquivo de dados de hóspedes localizado!");
@@ -16,10 +19,8 @@ public class Main {
             System.out.println("Arquivo de dados de reservas localizado!");
         }
 
-        Pousada pousada = new Pousada();
         pousada.lerAcomodacoes("dados/dadosAcomodacoes.txt");
         pousada.lerServicos("dados/dadosServicos.txt");
-        Scanner sc = new Scanner(System.in);
 
         int opcao;
 
@@ -52,15 +53,11 @@ public class Main {
 
                     Hospede hospede = new Hospede(null, 0, null);
 
-                    System.out.println("Nome hóspede: ");
-                    hospede.setNome(sc.nextLine());
+                    leitor.lerEAtribuirStr("Nome hóspede: ", hospede::setNome);
 
-                    System.out.println("Idade hóspede: ");
-                    hospede.setIdade(sc.nextInt());
-                    sc.nextLine();
+                    leitor.lerEAtribuirInt("Idade do hóspede " + hospede.getNome() + ":", hospede::setIdade);
 
-                    System.out.println("CPF hóspede: ");
-                    hospede.setCPF(sc.nextLine());
+                    leitor.lerEAtribuirStr("CPF do hóspede " + hospede.getNome() + ":", hospede::setCPF);
 
                     pousada.adicionarHospede(hospede);
 
@@ -81,6 +78,7 @@ public class Main {
                         System.out.printf("NOME: %s\nIDADE: %d\nCPF: %s\n", pousada.getHospedes().get(i).getNome(),
                                 pousada.getHospedes().get(i).getIdade(), pousada.getHospedes().get(i).getCPF());
                     }
+                    
                     break;
 
                 case 4:
