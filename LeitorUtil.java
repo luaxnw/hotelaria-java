@@ -41,20 +41,4 @@ public class LeitorUtil {
 
     }
 
-    public static void lerEAtribuirDoub(String mensagem, Consumer<Double> setterAcao) {
-        boolean valido = false;
-        while (!valido) {
-            try {
-                System.out.print(mensagem);
-                double valor = Double.parseDouble(scanner.nextLine());
-
-                setterAcao.accept(valor);
-                valido = true;
-
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erro: " + e.getMessage() + "\n");
-            }
-        }
-    }
-
 }

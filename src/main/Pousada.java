@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -77,7 +78,7 @@ public class Pousada {
 
             while ((linha = buffer.readLine()) != null) {
                 String[] arrayDaLinha = linha.split(";"); // transforma a linha lida em array a partir do
-                                                          // ";"
+                // ";"
 
                 if (arrayDaLinha[0].equals("QUARTO")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
@@ -86,9 +87,7 @@ public class Pousada {
                     int diasEstadia = Integer.parseInt(arrayDaLinha[4]);
 
                     acomodacoes.add(new Quarto(id, capacidadeMax, preco, diasEstadia));
-                }
-
-                else if (arrayDaLinha[0].equals("CHALE")) {
+                } else if (arrayDaLinha[0].equals("CHALE")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
                     int capacidadeMax = Integer.parseInt(arrayDaLinha[2]);
                     double preco = Double.parseDouble(arrayDaLinha[3]);
@@ -98,24 +97,21 @@ public class Pousada {
 
                     acomodacoes.add(new Chale(id, capacidadeMax, preco, diasEstadia, taxaAquecimento, taxaLimpeza));
 
-                }
-
-                else if (arrayDaLinha[0].equals("SUITE")) {
+                } else if (arrayDaLinha[0].equals("SUITE")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
                     int capacidadeMax = Integer.parseInt(arrayDaLinha[2]);
                     double preco = Double.parseDouble(arrayDaLinha[3]);
                     int diasEstadia = Integer.parseInt(arrayDaLinha[4]);
+                    int valorFixo = Integer.parseInt(arrayDaLinha[5]);
 
-                    acomodacoes.add(new SuiteMaster(id, capacidadeMax, preco, diasEstadia));
+                    acomodacoes.add(new SuiteMaster(id, capacidadeMax, preco, diasEstadia, valorFixo));
 
                 }
 
             }
             file.close();
 
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -131,25 +127,21 @@ public class Pousada {
 
             while ((linha = buffer.readLine()) != null) {
                 String[] arrayDaLinha = linha.split(";"); // transforma a linha lida em array a partir do
-                                                          // ";"
+                // ";"
 
                 if (arrayDaLinha[0].equals("REFEIÇÃO")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
                     double preco = Double.parseDouble(arrayDaLinha[2]);
 
                     servicos.add(new RefeicaoAcomodacao(id, preco));
-                }
-
-                else if (arrayDaLinha[0].equals("PASSEIO_EM_GRUPO")) {
+                } else if (arrayDaLinha[0].equals("PASSEIO_EM_GRUPO")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
                     double preco = Double.parseDouble(arrayDaLinha[2]);
                     int qtdMaximaPessoas = Integer.parseInt(arrayDaLinha[3]);
 
                     servicos.add(new PasseioGrupo(id, preco, qtdMaximaPessoas));
 
-                }
-
-                else if (arrayDaLinha[0].equals("SINUCA")) {
+                } else if (arrayDaLinha[0].equals("SINUCA")) {
                     int id = Integer.parseInt(arrayDaLinha[1]);
                     double preco = Double.parseDouble(arrayDaLinha[2]);
                     int numeroFichas = Integer.parseInt(arrayDaLinha[3]);
@@ -161,9 +153,7 @@ public class Pousada {
             }
             file.close();
 
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -178,7 +168,7 @@ public class Pousada {
             for (int i = 0; i < hospedes.size(); i++) { // itera sobre a lista e adiciona no file no formato: x;y;z
                 file.write(
                         "Nome hóspede: " + hospedes.get(i).getNome() + "Idade hóspede: " + hospedes.get(i).getIdade() + "CPF hóspede: " + hospedes.get(i).getCPF()
-                                + "\n");
+                        + "\n");
             }
             file.close(); // fecha quando finaliza
 
@@ -187,7 +177,7 @@ public class Pousada {
         }
 
         if (file != null) { // caso houve erro no meio do primeiro try e o arquivo foi parcialmente
-                            // preenchido vai fazer um try para fechar o arquivo
+            // preenchido vai fazer um try para fechar o arquivo
             try {
                 file.close();
             } catch (IOException ee) {
@@ -208,11 +198,11 @@ public class Pousada {
 
                 file.write(
                         "Código reserva: " + LISTAreservas.get(i).getCodigo() + "\n" + "Quantidade dias estadia: "
-                                + LISTAreservas.get(i).getQtdDias() + "\n"
-                                + "Quantidade hóspedes: " + LISTAreservas.get(i).getQuantidadeHospedes() + "\n"
-                                + "Hóspede responsável" + LISTAreservas.get(i).getHospedeResponsavel().getNome() + "\n"
-                                + "========ACOMODAÇÃO========"
-                                + LISTAreservas.get(i).getAcomodacao().mostraDados() + "\n");
+                        + LISTAreservas.get(i).getQtdDias() + "\n"
+                        + "Quantidade hóspedes: " + LISTAreservas.get(i).getQuantidadeHospedes() + "\n"
+                        + "Hóspede responsável" + LISTAreservas.get(i).getHospedeResponsavel().getNome() + "\n"
+                        + "========ACOMODAÇÃO========"
+                        + LISTAreservas.get(i).getAcomodacao().mostraDados() + "\n");
             }
             file.close();
 
@@ -220,7 +210,7 @@ public class Pousada {
             e.printStackTrace();
         }
         if (file != null) { // caso houve erro no meio do primeiro try e o arquivo foi parcialmente
-                            // preenchido vai fazer um try para fechar o arquivo
+            // preenchido vai fazer um try para fechar o arquivo
             try {
                 file.close();
             } catch (IOException ee) {
@@ -232,7 +222,6 @@ public class Pousada {
     }
 
     public void exibirHospede(String cpf) {
-
         for (int i = 0; i < hospedes.size(); i++) {
 
             if (cpf.equals(hospedes.get(i).getCPF())) {
@@ -247,8 +236,30 @@ public class Pousada {
         }
 
         System.out.println("Hóspede não localizado");
-        return;
+    }
 
+    public Hospede retornaHospede(String cpf) {
+        for (int i = 0; i < hospedes.size(); i++) {
+
+            if (cpf.equals(hospedes.get(i).getCPF())) {
+                return hospedes.get(i);
+            }
+        }
+
+        System.out.println("Hóspede não localizado");
+        return null;
+    }
+
+    public void listarHospedes() {
+        for (int i = 0; i < hospedes.size(); i++) {
+            System.out.printf("NOME: %s\nIDADE: %d\nCPF: %s\n",
+                    hospedes.get(i).getNome(),
+                    hospedes.get(i).getIdade(),
+                    hospedes.get(i).getCPF());
+            System.out.println("==========");
+        }
+
+        return;
     }
 
     public void exibirAcomodacao(int id) {

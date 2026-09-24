@@ -126,18 +126,12 @@ public class Main {
                     reserva.setCodigo(sc.nextInt());
                     sc.nextLine();
 
-                    System.out.println("Informe os dados do hóspede responsável pela acomodação: ");
-                    Hospede hospedeResposavel = new Hospede(null, 0, null);
+                    leitor.lerEAtribuirInt("Informe o ID da reserva: ", reserva::setCodigo);
 
-                    System.out.println("Nome hóspede responsável: ");
-                    hospedeResposavel.setNome(sc.nextLine());
+                    pousada.listarHospedes();
 
-                    System.out.println("Idade hóspede responsável: ");
-                    hospedeResposavel.setIdade(sc.nextInt());
-                    sc.nextLine();
-
-                    System.out.println("CPF do hóspede responsável: ");
-                    hospedeResposavel.setCPF(sc.nextLine());
+                    System.out.print("Informe o CPF do hóspede responsável: ");
+                    pousada.retornaHospede(sc.nextLine());
 
                     reserva.setHospedeResponsavel(hospedeResposavel);
 

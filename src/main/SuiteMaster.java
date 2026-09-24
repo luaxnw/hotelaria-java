@@ -1,7 +1,24 @@
+
 public class SuiteMaster extends Acomodacoes {
 
-    public SuiteMaster(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia) {
+    private int valorFixo;
+
+    public SuiteMaster(int codigo, int capacidadeMax, double valorBaseDiaria, int diasEstadia, int valorFixo) {
         super(codigo, capacidadeMax, valorBaseDiaria, diasEstadia);
+        this.valorFixo = valorFixo;
+    }
+
+    public void setValorFixo(int valorFixo) {
+        if (valorFixo > 0) {
+            this.valorFixo = valorFixo;
+        } else {
+            throw new IllegalArgumentException("Valor fixo da suíte master deve ser maior que zero. ");
+        }
+
+    }
+
+    public int getValorFixo() {
+        return valorFixo;
     }
 
     @Override
@@ -11,14 +28,12 @@ public class SuiteMaster extends Acomodacoes {
 
     @Override
     public double calculaPrecoTotalDiaria() {
-
-        return (getValorBaseDiaria() * getDiasEstadia()) + 130;
-
+        return (getValorBaseDiaria() * getDiasEstadia()) + valorFixo;
     }
 
     @Override
     public String mostraDados() {
-        String template = "Tipo de acomodação: Suíte Master\nCódigo: %d\nCapacidade máxima: %d\nValor diária: %.2f\n";
-        return template.formatted(getCodigo(), getCapacidadeMax(), getValorBaseDiaria());
+        String template = "Tipo de acomodação: Suíte Master\nCódigo: %d\nCapacidade máxima: %d\nValor fixo definido: %d\nValor diária: %.2f\n";
+        return template.formatted(getCodigo(), getCapacidadeMax(), getValorFixo(), getValorBaseDiaria());
     }
 }
